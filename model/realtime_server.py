@@ -7,13 +7,13 @@ from predictor import predict_with_inference_time
 
 cred = credentials.Certificate("service_account_key.json")
 firebase_admin.initialize_app(cred, {
-    "storageBucket": "aggressive-action-detection.appspot.com"
+    "storageBucket": "aaads-demo.appspot.com"
 })
 
 bucket = storage.bucket()
 
 
-realtime_db_ref = db.reference("/", url='https://aggressive-action-detection-default-rtdb.asia-southeast1.firebasedatabase.app/')
+realtime_db_ref = db.reference("/", url='https://aaads-demo-default-rtdb.firebaseio.com/')
 
 
 def download_image(path):

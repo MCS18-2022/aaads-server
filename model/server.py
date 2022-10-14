@@ -8,7 +8,7 @@ from predictor import predict_without_inference_time
 
 cred = credentials.Certificate("service_account_key.json")
 firebase_admin.initialize_app(cred, {
-    "storageBucket": "aggressive-action-detection.appspot.com"
+    "storageBucket": "aaads-demo.appspot.com"
 })
 bucket = storage.bucket()
 
@@ -17,7 +17,7 @@ def download_image(path):
     blob.download_to_filename(path)
 
 def upload_vid_preds(vid_name, preds):
-    ref = db.reference("/", url='https://aggressive-action-detection-default-rtdb.asia-southeast1.firebasedatabase.app/')
+    ref = db.reference("/", url='https://aaads-demo-default-rtdb.firebaseio.com/')
     ref.set({vid_name: preds})
 
 
@@ -26,8 +26,8 @@ if __name__ == "__main__":
         print("Server started listening")
         while True:
             blobs = list(bucket.list_blobs(prefix="pending/"))
-            if len(blobs) > 1:
-                _, task, *_ = blobs
+            if len(blobs) > 0:
+                task, *_ = blobs
                 task_name = Path(task.name).stem
                 # Consume the job.
                 bucket.delete_blob(task.name)
