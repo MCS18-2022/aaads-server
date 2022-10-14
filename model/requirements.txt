@@ -1,0 +1,9 @@
+scipy
+pycocotools
+cython
+onnx
+onnxruntime
+timm
+einops
+loguru
+opencv-python
