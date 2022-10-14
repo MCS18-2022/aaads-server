@@ -34,7 +34,8 @@ if __name__ == "__main__":
             
             print("Pending:", pending)
             
-            path = Path("webcam_up", f"{pending['id']}.png")
+            Path("video_capture").mkdir(exist_ok=True)
+            path = Path("video_capture", f"{pending['id']}.png")
             download_image(str(path))
             frame = cv2.imread(str(path))
             preds, time_taken = predict_with_inference_time(frame)
