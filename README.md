@@ -9,6 +9,7 @@ Our implemented model architecture is illustrated in the figure below. It is a o
 
 The figure below shows the qualitative predictions of our model for different confidence score thresholds. The larger the confidence score threshold, the more certain the model must be about the prediction to keep it (rather than filtering it out).
 
+![Aggressive Action Detection Examples](aggressive_action_threshold.png)
 
 The table below shows the evaluation of the model for various confidence score thresholds.
 | Confidence Scores               | 0.4  | 0.5  | 0.6  | 0.7  |
