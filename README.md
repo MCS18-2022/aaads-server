@@ -1,5 +1,7 @@
-# aaads-server
-Automated Aggressive Action Detection System - Server which houses the Deep Learning Model
+# Automated Aggressive Action Detection System (Server)
+Server-side code which houses and runs the Deep Learning Model with input provided by the client.
+
+The client architecture which calls the server can be found [here](https://github.com/MCS18-2022/aaads-client).
 
 Our implemented model architecture is illustrated in the figure below. It is a one-stage HOI detector which uses a powerful Swin transformer [1] backbone for multi-scale feature extraction which is then passed into an Encoder-less transformer network. This network performs global feature aggregation to refine queries which are then used to make the final predictions. The model takes in $n$ video frames in a batch (Note that only one frame is showed in the figure below for visual clarity) though no relationship is assumed between the images in the same batch, as mapping spatio-temporal relationships between dense image data is very resource-intensive. It maintains the core transformer architecture which was initially proposed, however optimizations and additional techniques have been introduced to the architecture, they are detailed further below.
 
